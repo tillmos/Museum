@@ -17,4 +17,12 @@ class Item extends Model
         'timestamps'
 
     ];
+
+    public function comments() {
+        return $this -> hasMany(Comment::class, 'id');
+    }
+
+    public function labels() {
+        return $this -> hasMany(Label::class)->withTimesStamps();
+    }
 }

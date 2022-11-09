@@ -16,4 +16,12 @@ class Labek extends Model
         'timestamps'
 
     ];
+
+    public function items() {
+        return $this -> hasMany(Label::class)->withTimesStamps();
+    }
 }
+}
+
+
+

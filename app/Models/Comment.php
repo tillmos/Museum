@@ -15,4 +15,8 @@ class Comment extends Model
         'timestamps'
     ];
 
+    public function author() {
+        return $this -> belongsTo(User::class, 'id');
+    }
+
 }

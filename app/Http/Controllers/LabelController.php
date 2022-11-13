@@ -29,7 +29,7 @@ class LabelController extends Controller
      */
     public function create()
     {
-        if(!Auth::is_admin() == 1 /*&& !Auth::user()->isAdmin()*/ )
+        if(!Auth::user() /*&& !Auth::user()->isAdmin()*/ )
             return redirect() -> route('login');
         return view('labels.create');
     }
@@ -42,7 +42,7 @@ class LabelController extends Controller
      */
     public function store(Request $request)
     {
-        if(!Auth::is_admin() == 1 )
+        if(!Auth::user())
             return abort(403);
      
         $validated = $request -> validate([
@@ -77,7 +77,7 @@ class LabelController extends Controller
      */
     public function edit(Label $label)
     {
-        if(!Auth::is_admin() == 1 )
+        if(!Auth::user())
             return redirect() -> route('login');
         return view('labels.edit', ['label' => $label]);
     }

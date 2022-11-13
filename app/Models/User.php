@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'timestamps',
+        'is_admin'
     ];
 
     /**
@@ -31,6 +33,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+
     ];
 
     /**
@@ -42,6 +45,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    
     public function isAdmin() {
         return $this->is_admin == false;
       }
@@ -49,4 +53,5 @@ class User extends Authenticatable
       public function comments() {
         return $this -> hasMany(Comment::class, 'id');
     }
+    
 }

@@ -23,6 +23,6 @@ class Item extends Model
     }
 
     public function labels() {
-        return $this -> hasMany(Label::class)->withTimesStamps();
+        return $this -> belongsToMany(Label::class);
     }
 }
